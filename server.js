@@ -3,11 +3,14 @@ const cors = require("cors");
 const morgan = require("morgan");
 const colors = require("colors");
 const dotenv = require("dotenv");
+const connectDB = require("./config/db");
 
 //env config
 dotenv.config();
-
 //* if dotenv file is in another folder add path ex : {path:'/ folder name'}
+
+//mongoDB connection
+connectDB();
 
 //rest object
 const app = express();
