@@ -9,6 +9,9 @@ const connectDB = require("./config/db");
 dotenv.config();
 //* if dotenv file is in another folder add path ex : {path:'/ folder name'}
 
+//router import
+const userRoutes = require("./routes/userRoutes");
+
 //mongoDB connection
 connectDB();
 
@@ -21,11 +24,7 @@ app.use(express());
 app.use(morgan("dev"));
 
 //routes
-app.get("/", (req, res) => {
-  res.status(200).send({
-    message: "node server running",
-  });
-});
+app.use("/api/v1/user", userRoutes);
 
 //port
 const PORT = process.env.PORT || 8080;
